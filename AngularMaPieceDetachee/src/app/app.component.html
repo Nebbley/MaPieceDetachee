@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <app-header (Connection)="connect()" *ngIf="!Connected"></app-header>
+      <app-header-connected  *ngIf="Connected" (Connection)="deconnect()"></app-header-connected>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

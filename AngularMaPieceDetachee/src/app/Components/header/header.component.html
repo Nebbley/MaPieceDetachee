@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand">Ma Piece Detachée</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item " routerLinkActive="active" style="margin: 10px; margin-left: 40%  ;">
+        <input type="text" name="username" placeholder="Enter Mail or Username">
+      </li>
+      <li class="nav-item " routerLinkActive="active" style="margin: 10px;">
+        <input type="password" placeholder="Enter password">
+      </li>
+      <li class="nav-item " routerLinkActive="active" style=" margin-top: 10px;" >
+        <button (click)="Connect()">Connection</button>
+       </li>
+       <li class="nav-item " routerLinkActive="active" style="margin: 10px; margin-left: 40px;">
+        <button (click)="Inscription()">Inscription</button>
+       </li>
+
+    </ul>
+
+  </div>
+</nav>
