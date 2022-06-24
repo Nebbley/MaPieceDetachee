@@ -1,1 +1,25 @@
-<p>acceuil works!</p>
+<ul class="navbar-nav mr-auto">
+  <li class="nav-item " routerLinkActive="active" style="margin: 10px;">
+    <Select (change)="modelchoosed()" #marquechoisie>Marque
+      <option value="">Selectionner la marque de votre véhicule</option>
+      <option *ngFor="let nomLocal of Marques">{{nomLocal }}</option>
+    </Select>
+  </li>
+  <li class="nav-item " *ngIf="choosed" routerLinkActive="active" style="margin: 10px;">
+    <Select (change)="marquechoosed()">Modele
+      <option value="">Selectionnez le modele du vehicule</option>
+      <option *ngFor="let nomLocal of Modeles">{{ nomLocal }}</option>
+    </Select>
+  </li>
+</ul>
+<div class="list-group" *ngIf="modelechoosed">
+
+  <a href="" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let nb of listpiece">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{listpiece}}</h5>
+      <small class="text-muted">30 €</small>
+    </div>
+    <p class="mb-1">Carburateur monolithique</p>
+    <small class="text-muted">A moitié prix !</small>
+  </a>
+</div>
