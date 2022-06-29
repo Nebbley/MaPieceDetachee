@@ -1,12 +1,16 @@
+package com.m2i.projectwebmapiecedetachee.modeles;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @ Entity
-@ Table (name = "Users")
+@ Table (name = "users")
 public class Users  {
 	
 	
@@ -21,8 +25,10 @@ public class Users  {
 	@Column	
 	private String mail;
 	@Column	
-	private String password;
-	@Column	
+	private String pass;
+	
+	@OneToOne
+	@JoinColumn (name="voiture")
 	private Voiture voiture;
 	
 
@@ -33,14 +39,14 @@ public class Users  {
 
 
 
-	public Users(String id, String prenom, String nom, String mail, String password, Voiture voiture) {
+	public Users(String id, String prenom, String nom, String mail, String password) {
 		super();
 		this.id = id;
 		this.prenom = prenom;
 		this.nom = nom;
 		this.mail = mail;
-		this.password = password;
-		this.voiture = voiture;
+		this.pass = password;
+		//this.voiture = voiture;
 	}
 
 
@@ -93,14 +99,14 @@ public class Users  {
 
 
 
-	public String getPassword() {
-		return password;
+	public String getPass() {
+		return pass;
 	}
 
 
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPass(String password) {
+		this.pass = password;
 	}
 
 

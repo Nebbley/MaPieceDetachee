@@ -2,59 +2,66 @@ package com.m2i.projectwebmapiecedetachee.modeles;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.m2i.projectwebmapiecedetachee.doa.MarqueVoiture;
+import com.m2i.projectwebmapiecedetachee.doa.ModeleVoiture;
+import com.m2i.projectwebmapiecedetachee.doa.Piece;
 
 @Entity
 @Table
 public class Voiture {
 	
-	@Column (name = "Modele")
-	private ModeleVoiture modele;
-	@Column (name = "Marque")
-	private MarqueVoiture marque;
-	@Column (name = "Plaque Im")
-	private String im;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column	
+	private int id;
 	
-	@Column (name = "pieces")
-	private List<Piece> piece;
+	@OneToOne (cascade = CascadeType.ALL)
+	@JoinColumn (name ="modele" )
+	private Modeles modele;
+
+	public Voiture(Modeles model) {
+		this.modele=model;
+	}
 	
 	public Voiture() {
 		
 	}
-	
-	public Voiture(ModeleVoiture modele, MarqueVoiture marque, String im, List<Piece> piece) {
-		super();
-		this.modele = modele;
-		this.marque = marque;
-		this.im = im;
-		this.piece = piece;
+	public int getId() {
+		return id;
 	}
-	public ModeleVoiture getModele() {
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Modeles getModele() {
 		return modele;
 	}
-	public void setModele(ModeleVoiture modele) {
+
+	public void setModele(Modeles modele) {
 		this.modele = modele;
 	}
-	public MarqueVoiture getMarque() {
-		return marque;
+
+	public Users getUser() {
+		return user;
 	}
-	public void setMarque(MarqueVoiture marque) {
-		this.marque = marque;
+
+	public void setUser(Users user) {
+		this.user = user;
 	}
-	public String getIm() {
-		return im;
-	}
-	public void setIm(String im) {
-		this.im = im;
-	}
-	public List<Piece> getPiece() {
-		return piece;
-	}
-	public void setPiece(List<Piece> piece) {
-		this.piece = piece;
-	}
+
+	@OneToOne (mappedBy = "voiture")
+	private Users user;
 	
 
 }
